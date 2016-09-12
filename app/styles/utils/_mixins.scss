@@ -1,0 +1,17 @@
+@mixin pseudo($display: block, $content: "") {
+  display: $display;
+  content: $content;
+}
+
+@mixin childs-clean($value: 0) {
+  &:first-child {
+    margin-left: $value;
+    padding-top: $value;
+  }
+
+  &:last-child {
+    margin-right: $value;
+    padding-bottom: $value;
+  }
+}
+

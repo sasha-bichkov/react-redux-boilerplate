@@ -1,6 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
+const sassLoaders = [
+  'css-loader',
+  'postcss-loader',
+  'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, './app')
+];
 
 
 module.exports = {
@@ -10,7 +19,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'public'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: 'public'
   },
   devServer: {
     historyApiFallback: true,
@@ -27,6 +37,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+      },
+      {
         test: /\.jsx?$/,
         loaders: ['babel-loader', 'eslint-loader'],
         exclude: /node_modules/
@@ -35,6 +49,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({title: 'Artists'}),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin('[name].css')
+  ],
+  postcss: [
+    autoprefixer({
+      browsers: ['last 3 versions']
+    })
+  ],
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    root: [path.join(__dirname, './app')]
+  }
 };

@@ -1,0 +1,97 @@
+html, body {
+  color: $white;
+  background-color: $black;
+  font-family: $default-font-family;
+  height: 100%;
+  text-rendering: geometricPrecision;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, figure {
+  @include clean;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  text-align: center;
+}
+
+
+img {
+  display: block; // remove the spaces around an image
+  max-width: 100%;
+  @include size(auto, auto);
+}
+
+strong {
+  font-weight: normal;
+}
+
+label {
+  margin-right: 5px;
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+}
+
+input[type="text"],
+input[type="email"] {
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+// customize number inputs
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+// throw away the red border in FireFox around inputs
+input:invalid {
+  box-shadow: none;
+}
+
+
+/* radio buttons */
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+input[type="radio"] + label {
+  position: relative;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+input[type="radio"] + label:after,
+input[type="radio"] + label:before {
+  content: "";
+  margin-right: 4px;
+  border: 1px solid #000;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+input[type="radio"] + label:before {
+  display: inline-block;
+  @include size(28px, 28px);
+  @include position(relative, 6px);
+}
+
+input[type="radio"] + label:after {
+  @include size(10px, 10px);
+  @include position(absolute, 29px, null, null, 9px);
+}
+
+input[type="radio"]:checked + label:after {
+  background: #000;
+}
