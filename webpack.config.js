@@ -24,6 +24,18 @@ module.exports = {
     // Poll using interval (in ms, accepts boolean too)
     poll: 1000
   },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({title: 'Artists'}),
     new webpack.HotModuleReplacementPlugin()

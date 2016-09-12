@@ -1,3 +1,7 @@
 # Artists frontend (react+redux)
-___
 
+## Usage
+
+> npm install
+
+> npm run start
