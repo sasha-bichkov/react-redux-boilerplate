@@ -48,6 +48,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({title: 'Artists'}),
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('[name].css')
