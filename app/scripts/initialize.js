@@ -3,13 +3,10 @@ import '../styles/main.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { combineReducers, createStore } from 'redux';
+import DevTools from './containers/DevTools';
+import configureStore from './store/configureStore';
 
-
-const store = createStore(
-  combineReducers({})
-);
-
+const store = configureStore();
 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.createElement('div');
@@ -17,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(el);
   render(
     <Provider store={store}>
-      <h1>Hello, world!</h1>
+      <section>
+        <h1>Hello, world!</h1>
+        <DevTools />
+      </section>
     </Provider>,
     el
   );
