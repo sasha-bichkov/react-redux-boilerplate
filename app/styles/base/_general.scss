@@ -1,6 +1,5 @@
 html, body {
-  color: $white;
-  background-color: $black;
+  color: $black;
   font-family: $default-font-family;
   height: 100%;
   text-rendering: geometricPrecision;
@@ -16,9 +15,8 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-
 img {
-  display: block; // remove the spaces around an image
+  display: block; // remove the spaces around images
   max-width: 100%;
   @include size(auto, auto);
 }

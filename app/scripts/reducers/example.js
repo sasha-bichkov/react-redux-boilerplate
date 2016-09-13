@@ -1,4 +1,6 @@
-const initialState = {};
+const initialState = {
+  message: 'hello_world'
+};
 
 
 export default function (state = initialState, action) {

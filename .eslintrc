@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "rules": {
     // disable requiring trailing commas because it might be nice to revert to
