@@ -1,3 +1,8 @@
+import * as promisePolyfill from 'es6-promise';
+promisePolyfill.polyfill();
+
+import 'babel-polyfill';
+
 import '../styles/main.scss';
 
 import React from 'react';

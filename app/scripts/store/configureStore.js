@@ -3,6 +3,8 @@ import rootReducer from '../reducers';
 import createSagaMiddleware from 'redux-saga';
 import DevTools from '../containers/DevTools';
 
+import { helloSaga } from '../sagas';
+
 const sagaMiddleware = createSagaMiddleware();
 
 const enhancer = compose(
@@ -16,6 +18,7 @@ export default function configureStore(initialState) {
   // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
   // See https://github.com/rackt/redux/releases/tag/v3.1.0
   const store = createStore(rootReducer, initialState, enhancer);
+  sagaMiddleware.run(helloSaga);
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (module.hot) {
