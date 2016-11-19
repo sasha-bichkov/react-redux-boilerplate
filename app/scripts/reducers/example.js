@@ -14,6 +14,11 @@ export default function (state = initialState, action) {
         ...state,
         message: action.text
       };
+    case 'USER_FETCH_SUCCEEDED':
+      return {
+        ...state,
+        message: 'Holly-molly!'
+      };
     default:
       return state;
   }
