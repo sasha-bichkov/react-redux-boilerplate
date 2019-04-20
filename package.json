@@ -1,5 +1,5 @@
 {
-  "name": "Artists",
+  "name": "react-redux-boilerplate",
   "version": "1.0.0",
   "description": "frontend on React+Redux",
   "main": "index.js",
@@ -8,11 +8,8 @@
     "start": "webpack-dev-server --port 3333 --content-base ./public/",
     "test": "mocha --compilers js:babel-core/register --recursive"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sasha-bichkov/react-redux-boilerplate.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/sasha-bichkov/react-redux-boilerplate.git",
+  "author": "Sasha Bychkov <aleksandar.bichkov@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sasha-bichkov/react-redux-boilerplate/issues"
